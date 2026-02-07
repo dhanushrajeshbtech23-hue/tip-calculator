@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Tip Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <main class="calculator">
+    <div class="panel-left">
+      <header>
+        <h1>Tip Calculator</h1>
+        <p class="subtitle">Quick and precise bill splitting.</p>
+      </header>
+
+      <form class="inputs" id="tipForm" novalidate onsubmit="return false;">
+        <div class="field">
+          <label for="bill"><i data-lucide="dollar-sign" size="16"></i> Bill amount</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="text" id="bill" name="bill" inputmode="decimal" placeholder="0.00" autocomplete="off"
+              aria-describedby="bill-hint">
+          </div>
+          <span id="bill-hint" class="hint" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="tipPercent"><i data-lucide="percent" size="16"></i> Tip percentage</label>
+          <div class="input-wrap">
+            <input type="text" id="tipPercent" name="tipPercent" inputmode="decimal" placeholder="15" autocomplete="off"
+              aria-describedby="tip-hint">
+            <span class="suffix">%</span>
+          </div>
+          <div class="presets">
+            <button type="button" class="btn-preset" data-pct="10">10%</button>
+            <button type="button" class="btn-preset" data-pct="15">15%</button>
+            <button type="button" class="btn-preset" data-pct="20">20%</button>
+            <button type="button" class="btn-preset" data-pct="25">25%</button>
+          </div>
+          <span id="tip-hint" class="hint" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="people"><i data-lucide="users" size="16"></i> Number of people</label>
+          <div class="input-wrap">
+            <input type="text" id="people" name="people" inputmode="numeric" placeholder="1" autocomplete="off"
+              aria-describedby="people-hint">
+          </div>
+          <span id="people-hint" class="hint" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+
+    <div class="panel-right">
+      <section class="results" aria-live="polite">
+        <div class="result-row">
+          <div class="result-label">
+            <span class="title">Tip Amount</span>
+            <span class="sub">per person</span>
+          </div>
+          <output id="tipPerPerson" class="result-value">$0.00</output>
+        </div>
+        <div class="result-row total-row">
+          <div class="result-label">
+            <span class="title">Total</span>
+            <span class="sub">per person</span>
+          </div>
+          <output id="totalPerPerson" class="result-value">$0.00</output>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="copyBtn" class="btn btn-secondary">
+          <i data-lucide="copy" size="18"></i> Copy
+        </button>
+        <button type="button" id="resetBtn" class="btn btn-primary">
+          <i data-lucide="refresh-cw" size="18"></i> Reset
+        </button>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
